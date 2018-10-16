@@ -51,6 +51,18 @@ void postorder(struct node* root) {
     printf("%d ->", root->data);
 }
 
+int search(struct node* root, int number){
+if (root == NULL)
+    return 0;
+if (number == root->data)
+    return root->data;
+if(number < root->data)  
+    return search(root->left,number);
+if(number > root->data)
+    return search(root->right,number);
+    
+}
+
 int main(){
     struct node *root = NULL;
     root = insert(root, 8);
@@ -68,5 +80,12 @@ int main(){
     preorder(root);
     printf("\nPost order\n");
     postorder(root);
+  
+   printf("\n");
+    if(search(root,14)){
+         printf("Found \n");
+    }else{
+         printf("\n Not found");
+    }
     
 }
